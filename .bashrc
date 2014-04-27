@@ -2,7 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-export TERM="xterm-color"
+export TERM="xterm-256color"
+# at the least, LC_COLLATE affects "ls" sort order case-sensitivity
+export LC_COLLATE=C
+
+export SITES="/etc/nginx/sites-available"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -33,6 +37,7 @@ fi
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
+    xterm-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
