@@ -1,6 +1,7 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# Include this file by putting the following in your ~/.bashrc:
+#
+# SUPER_BASHRC="$HOME/dotfiles/.bashrc"
+# [ -f $SUPER_BASHRC ] && . $SUPER_BASHRC
 
 export TERM="xterm-256color"
 # at the least, LC_COLLATE affects "ls" sort order case-sensitivity
