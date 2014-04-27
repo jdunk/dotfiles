@@ -1,0 +1,25 @@
+startup_message off
+vbell off
+
+defscrollback 30000
+
+deflogin on
+autodetach on
+
+termcapinfo vt100 dl=5\E[M
+
+termcapinfo xterm*|linux*|rxvt*|kterm*|Eterm* OP
+
+# don't break shift+pgup/pgdn scrollback!
+termcapinfo xterm*|linux*|rxvt*|kterm*|Eterm* ti@:te@
+
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+termcapinfo xterm-color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+# don't break screen restore in vi and other apps
+altscreen on
+
+# Pretty status bar at the bottom.
+#caption always "%{=r gk}%-w%{=b wb}%50>%n%f* %t%{-}%+Lw%<%{- Wk}"
+hardstatus alwayslastline "%{=r gk}%-w%{=b wb}%50>%n%f* %t%{-}%+Lw%<%{- Wk}"
+hardstatus alwayslastline "%{= kw} %-w%{= wk}%n %t%{-}%+w"
