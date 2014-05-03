@@ -1,7 +1,7 @@
-:set rs term=builtin_ansi ai et smarttab ts=4 shiftwidth=4 binary noeol t_ti=[?47h t_te=[?47l
-:set et
-:syntax on
-:syn sync fromstart
+set rs term=builtin_ansi ai et smarttab ts=4 shiftwidth=4 binary noeol t_ti=[?47h t_te=[?47l
+set et
+syntax on
+syn sync fromstart
 " Tell vim to remember certain things when we exit
 "  '10 : marks will be remembered for up to 10 previously edited files
 "  "100 : will save up to 100 lines for each register
@@ -37,4 +37,4 @@ augroup JumpCursorOnEdit
  \ endif
 augroup END
 
-:colo putty
+colo putty
