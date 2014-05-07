@@ -4,6 +4,7 @@
 [alias]
 	co = checkout
 	br = branch
+	s = status
 	st = status
 	ci = commit
 	unstage = reset HEAD --

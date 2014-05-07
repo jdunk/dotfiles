@@ -3,6 +3,9 @@
 # SUPER_BASHRC="$HOME/dotfiles/.bashrc"
 # [ -f $SUPER_BASHRC ] && . $SUPER_BASHRC
 
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
 export TERM="xterm-256color"
 # at the least, LC_COLLATE affects "ls" sort order case-sensitivity
 export LC_COLLATE=C
@@ -100,9 +103,10 @@ fi
 #alias l='ls -CF'
 
 alias sudo='sudo '
-alias lx='ls -lah'
+alias lx='ls -lahGp'
 alias vi='vim'
 alias vim='vim -p'
+alias find='find -H'
 alias bc='bc -l'
 alias kibitz='kibitz -noescape'
 alias irssi='TZ="America/Los_Angeles" irssi'
