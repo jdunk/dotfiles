@@ -8,7 +8,8 @@
 	st = status
 	ci = commit
 	unstage = reset HEAD --
-	last = log -1 HEAD
+	undo-commit = reset --soft HEAD^
+    last = log -1 HEAD
 	stash-unapply = !git stash show -p | git apply -R
 	d = diff
 	dc = diff --cached
