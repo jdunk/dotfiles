@@ -1,21 +1,28 @@
 [user]
-	email = jdunk@users.noreply.github.com
-	name = jdunk
+    email = jdunk@users.noreply.github.com
+    name = jdunk
 [alias]
-	co = checkout
-	br = branch
-	s = status
-	st = status
-	ci = commit
-	unstage = reset HEAD --
-	undo-commit = reset --soft HEAD^
+    co = checkout
+    br = branch
+    s = status
+    st = status
+    ci = commit
+    unstage = reset HEAD --
+    undo-commit = reset --soft HEAD^
     last = log -1 HEAD
-	stash-unapply = !git stash show -p | git apply -R
-	d = diff
-	dc = diff --cached
-	abandon = reset --hard
-	pr = pull --rebase
+    stash-unapply = !git stash show -p | git apply -R
+    d = diff
+    dc = diff --cached
+    abandon = reset --hard
+    pr = pull --rebase
+    lol = log --oneline --graph --decorate --all
 [color]
-	diff = true
+    diff = true
+    ui = auto
 [push]
-	default = matching
+    default = matching
+[filter "media"]
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
+[credential]
+    helper = cache --timeout=300
