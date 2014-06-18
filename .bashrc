@@ -114,6 +114,7 @@ alias kibitz='kibitz -noescape'
 alias irssi='TZ="America/Los_Angeles" irssi'
 alias screen_size='terminal_size'
 alias terminal_size='echo $(tput cols)x$(tput lines)'
+alias art='php artisan'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
