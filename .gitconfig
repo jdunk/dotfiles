@@ -16,6 +16,8 @@
     abandon = reset --hard
     pr = pull --rebase
     lol = log --oneline --graph --decorate --all
+[branch]
+    autosetuprebase = always
 [color]
     diff = true
     ui = auto
