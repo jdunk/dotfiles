@@ -2,20 +2,20 @@
     email = jdunk@users.noreply.github.com
     name = jdunk
 [alias]
-    co = checkout
+    abandon = reset --hard
     br = branch
-    s = status
-    st = status
     ci = commit
-    unstage = reset HEAD --
-    undo-commit = reset --soft HEAD^
-    last = log -1 HEAD
-    stash-unapply = !git stash show -p | git apply -R
+    co = checkout
     d = diff
     dc = diff --cached
-    abandon = reset --hard
-    pr = pull --rebase
+    last = log -1 HEAD
     lol = log --oneline --graph --decorate --all
+    pr = pull --rebase
+    s = status
+    st = status
+    stash-unapply = !git stash show -p | git apply -R
+    undo-commit = reset --soft HEAD^
+    unstage = reset HEAD --
 [branch]
     autosetuprebase = always
 [color]
