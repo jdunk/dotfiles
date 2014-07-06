@@ -103,7 +103,7 @@ fi
 #alias l='ls -CF'
 
 alias sudo='sudo '
-alias lx='ls -lahGp'
+alias lx='ls -lahp'
 alias vi='vim'
 alias vim='vim -p'
 alias sdr='sudo shutdown -r now'
