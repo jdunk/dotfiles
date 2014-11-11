@@ -116,6 +116,15 @@ alias screen_size='terminal_size'
 alias terminal_size='echo $(tput cols)x$(tput lines)'
 alias art='php artisan'
 
+# Way Generators shortcuts
+alias g:m='php artisan generate:model'
+alias g:mod='g:m'
+alias g:c='php artisan generate:controller'
+alias g:v='php artisan generate:view'
+alias g:s='php artisan generate:seed'
+alias g:mig='php artisan generate:migration'
+alias g:r='php artisan generate:resource'
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
