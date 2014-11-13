@@ -11,7 +11,17 @@ syn sync fromstart
 "  % : saves and restores the buffer list
 "  n... : where to save the viminfo files
 set viminfo='10,\"100,:20,%,n~/.viminfo
+let mapleader = ","
 cmap w!! w !sudo tee %
+
+" Fast saves
+nmap <leader>w :w!<cr>
+
+"Easy escaping to normal model
+imap jj <esc>
+ 
+"Auto change directory to match current file ,cd
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " when we reload, tell vim to restore the cursor to the saved position
 augroup JumpCursorOnEdit
