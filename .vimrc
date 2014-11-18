@@ -16,6 +16,7 @@ cmap w!! w !sudo tee %
 
 " Fast saves
 nmap <leader>w :w!<cr>
+nmap <leader>t :! clear && phpunit %<cr>
 
 "Easy escaping to normal model
 imap jj <esc>
