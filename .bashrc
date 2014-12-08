@@ -116,6 +116,16 @@ alias screen_size='terminal_size'
 alias terminal_size='echo $(tput cols)x$(tput lines)'
 alias art='php artisan'
 
+# git shortcuts
+alias gs='git status'
+alias glg='git log --oneline --graph --decorate --all'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gcm='git checkout master'
+alias gbr='git branch'
+alias gbn='git rev-parse --abbrev-ref HEAD'
+alias gpo='git push -u origin `gbn`'
+
 # Way Generators shortcuts
 alias g:m='php artisan generate:model'
 alias g:mod='g:m'
