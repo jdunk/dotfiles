@@ -3,6 +3,11 @@
 # SUPER_BASHRC="$HOME/dotfiles/.bashrc"
 # [ -f $SUPER_BASHRC ] && . $SUPER_BASHRC
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
@@ -118,6 +123,8 @@ alias art='php artisan'
 
 # git shortcuts
 alias gs='git status'
+alias gd='git diff'
+alias ga='git add'
 alias glg='git log --oneline --graph --decorate --all'
 alias gco='git checkout'
 alias gcb='git checkout -b'
@@ -141,6 +148,14 @@ alias g:r='php artisan generate:resource'
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+for file in /etc/bash_completion.d/* ; do
+    source "$file"
+done
+
+for file in ~/bash_completion.d/* ; do
+    source "$file"
+done
 
 export EDITOR="/usr/bin/vim"
 export MAILDIR="~/Maildir"
