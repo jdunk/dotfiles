@@ -126,6 +126,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias ga='git add'
+alias gci='git commit'
 alias glg='git log --oneline --graph --decorate --all'
 alias gco='git checkout'
 alias gcb='git checkout -b'
@@ -150,13 +151,17 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-for file in /etc/bash_completion.d/* ; do
-    source "$file"
-done
+if [ -d /etc/bash_completion.d ]; then
+    for file in /etc/bash_completion.d/* ; do
+        source "$file"
+    done
+fi
 
-for file in ~/bash_completion.d/* ; do
-    source "$file"
-done
+if [ -d ~/bash_completion.d ]; then
+    for file in ~/bash_completion.d/* ; do
+        source "$file"
+    done
+fi
 
 export EDITOR="/usr/bin/vim"
 export MAILDIR="~/Maildir"
