@@ -124,6 +124,7 @@ alias art='php artisan'
 # git shortcuts
 alias gs='git status'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias ga='git add'
 alias glg='git log --oneline --graph --decorate --all'
 alias gco='git checkout'
