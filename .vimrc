@@ -1,4 +1,5 @@
 execute pathogen#infect()
+call pathogen#helptags()
 map <C-n> :NERDTreeToggle<CR>
 set rs term=builtin_ansi ai et smarttab ts=4 shiftwidth=4 binary noeol t_ti=[?47h t_te=[?47l
 set et
