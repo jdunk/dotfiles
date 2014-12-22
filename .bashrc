@@ -126,6 +126,7 @@ alias irssi='TZ="America/Los_Angeles" irssi'
 alias screen_size='terminal_size'
 alias terminal_size='echo $(tput cols)x$(tput lines)'
 alias php-xdebug='php -dxdebug.remote_enable=On -dxdebug.remote_handler=dbgp -dxdebug.remote_host=localhost -dxdebug.remote_port=9000 -dxdebug.remote_autostart=On'
+alias phpunit-xdebug='phpunit -dxdebug.remote_enable=On -dxdebug.remote_handler=dbgp -dxdebug.remote_host=localhost -dxdebug.remote_port=9000 -dxdebug.remote_autostart=On'
 alias art='php artisan'
 
 # git shortcuts
