@@ -3,6 +3,36 @@ call pathogen#helptags()
 map <C-n> :NERDTreeToggle<CR>
 set rs term=builtin_ansi ai et smarttab ts=4 shiftwidth=4 binary noeol t_ti=[?47h t_te=[?47l
 set et
+let mapleader = ","
+
+" vim airline
+set laststatus=2
+set t_Co=256
+set timeoutlen=200
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='powerlineish'
+
+nnoremap <silent> <leader>[ :vertical resize -1<CR>
+nnoremap <silent> <leader>] :vertical resize +1<CR>
+nnoremap <silent> <leader>- :resize -1<CR>
+nnoremap <silent> <leader>= :resize +1<CR>
+
+" Vdebug
+    let g:vdebug_keymap = {
+    \    "run" : "<Leader>r",
+    \    "run_to_cursor" : "<up>",
+    \    "step_over" : "<down>",
+    \    "step_into" : "<left>",
+    \    "step_out" : "<right>",
+    \    "close" : "q",
+    \    "detach" : "<Leader>x",
+    \    "set_breakpoint" : "<Leader>b",
+    \    "get_context" : "<F11>",
+    \    "eval_under_cursor" : "<leader>e",
+    \    "eval_visual" : "E",
+    \}
+
 syntax on
 syn sync fromstart
 " Tell vim to remember certain things when we exit
@@ -12,11 +42,22 @@ syn sync fromstart
 "  % : saves and restores the buffer list
 "  n... : where to save the viminfo files
 set viminfo='10,\"100,:20,%,n~/.viminfo
-let mapleader = ","
+
+map [15~ <F5>
+map [17~ <F6>
+map [18~ <F7>
+map [19~ <F8>
+map [20~ <F9>
+map [21~ <F10>
+map [23~ <F11>
+map [24~ <F12>
+
 cmap w!! w !sudo tee %
 
 " Fast saves
 nmap <leader>w :w!<cr>
+nmap <leader>e :e<cr>
+nmap <leader>q :q<cr>
 nmap <leader>t :! clear && phpunit %<cr>
 
 "Easy escaping to normal model
