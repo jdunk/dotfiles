@@ -10,7 +10,12 @@
     d = diff
     dc = diff --cached
     last = log -1 HEAD
-    lol = log --oneline --graph --decorate --all
+    # default log format: date only
+    l = log --oneline --graph --decorate --all --date=short --pretty=format:'%Cblue%cd %C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(cyan)[%an]%Creset'
+    # include time
+    lt = log --oneline --graph --decorate --all --pretty=format:'%Cblue%ci %C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(cyan)[%an]%Creset'
+    # no date
+    lnd = log --oneline --graph --decorate --all --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(cyan)[%an]%Creset'
     pr = pull --rebase
     s = status
     st = status

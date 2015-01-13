@@ -126,7 +126,7 @@ alias irssi='TZ="America/Los_Angeles" irssi'
 alias screen_size='terminal_size'
 alias terminal_size='echo $(tput cols)x$(tput lines)'
 alias php-xdebug='php -dxdebug.remote_enable=On -dxdebug.remote_handler=dbgp -dxdebug.remote_host=localhost -dxdebug.remote_port=9000 -dxdebug.remote_autostart=On'
-alias phpunit-xdebug='phpunit -dxdebug.remote_enable=On -dxdebug.remote_handler=dbgp -dxdebug.remote_host=localhost -dxdebug.remote_port=9000 -dxdebug.remote_autostart=On'
+alias phpunit-xdebug="php -d -dxdebug.remote_enable=On -dxdebug.remote_handler=dbgp -dxdebug.remote_host=localhost -dxdebug.remote_port=9000 -dxdebug.remote_autostart=On `which phpunit`"
 alias art='php artisan'
 
 # git shortcuts
@@ -135,7 +135,9 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias ga='git add'
 alias gci='git commit'
-alias glg='git log --oneline --graph --decorate --all'
+alias glg="git log --oneline --graph --decorate --all --date=short --pretty=format:'%Cblue%cd %C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(cyan)[%an]%Creset'"
+alias glgt="git log --oneline --graph --decorate --all --pretty=format:'%Cblue%ci %C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(cyan)[%an]%Creset'"
+alias glgnd="git log --oneline --graph --decorate --all --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(cyan)[%an]%Creset'"
 alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gcm='git checkout master'
