@@ -156,18 +156,19 @@ alias g:s='php artisan generate:seed'
 alias g:mig='php artisan generate:migration'
 alias g:r='php artisan generate:resource'
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
+# enable bash completion features
+# (NOTE: this is unnecessary if file(s) already sourced via
+# /etc/profile -> /etc/bash.bashrc -> /etc/bash_completion*)
 
-if [ -d /etc/bash_completion.d ]; then
-    for file in /etc/bash_completion.d/* ; do
-        source "$file"
-    done
-fi
+#if [ -f /etc/bash_completion ]; then
+#    . /etc/bash_completion
+#fi
+#
+#if [ -d /etc/bash_completion.d ]; then
+#    for file in /etc/bash_completion.d/* ; do
+#        source "$file"
+#    done
+#fi
 
 if [ -d ~/bash_completion.d ]; then
     for file in ~/bash_completion.d/* ; do
