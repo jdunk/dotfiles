@@ -160,21 +160,15 @@ alias g:r='php artisan generate:resource'
 # (NOTE: this is unnecessary if file(s) already sourced via
 # /etc/profile -> /etc/bash.bashrc -> /etc/bash_completion*)
 
-#if [ -f /etc/bash_completion ]; then
-#    . /etc/bash_completion
-#fi
-#
-#if [ -d /etc/bash_completion.d ]; then
-#    for file in /etc/bash_completion.d/* ; do
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+#if [ -d $BASH_COMPLETION_DIR ]; then
+#    for file in $BASH_COMPLETION_DIR/* ; do
 #        source "$file"
 #    done
 #fi
-
-if [ -d $BASH_COMPLETION_DIR ]; then
-    for file in $BASH_COMPLETION_DIR/* ; do
-        source "$file"
-    done
-fi
 
 if [ -d ~/bash_completion.d ]; then
     for file in ~/bash_completion.d/* ; do
