@@ -170,6 +170,12 @@ alias g:r='php artisan generate:resource'
 #    done
 #fi
 
+if [ -d $BASH_COMPLETION_DIR ]; then
+    for file in $BASH_COMPLETION_DIR/* ; do
+        source "$file"
+    done
+fi
+
 if [ -d ~/bash_completion.d ]; then
     for file in ~/bash_completion.d/* ; do
         source "$file"
