@@ -4,6 +4,7 @@ map <C-n> :NERDTreeToggle<CR>
 set rs term=builtin_ansi ai et smarttab ts=4 shiftwidth=4 binary noeol t_ti=[?47h t_te=[?47l
 set et
 set encoding=utf-8
+set backspace=2 " make backspace work like most other apps
 let mapleader = ","
 
 " vim airline

@@ -143,9 +143,14 @@ alias gcb='git checkout -b'
 alias gcm='git checkout master'
 alias gbr='git branch'
 alias gbn='git rev-parse --abbrev-ref HEAD'
+alias gps='git push'
 alias gpo='git push origin `gbn`'
 # same, but add tracking
 alias gpt='git push -u origin `gbn`'
+alias gsp='git stash pop'
+alias gst='git stash'
+alias gsl='git stash list'
+alias gpl='git pull'
 
 # Way Generators shortcuts
 alias g:m='php artisan generate:model'
