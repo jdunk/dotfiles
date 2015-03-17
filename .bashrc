@@ -183,6 +183,7 @@ fi
 
 export EDITOR="/usr/bin/vim"
 export MAILDIR="~/Maildir"
+export PHANTOMJS_BIN=`which phantomjs`
 
 if [ $SSH_TTY ] && [ ! $WINDOW ]; then
 	SCREENLIST=`screen -ls | grep 'Attached'`
