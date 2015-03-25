@@ -186,11 +186,18 @@ export MAILDIR="~/Maildir"
 export PHANTOMJS_BIN=`which phantomjs`
 
 if [ $SSH_TTY ] && [ ! $WINDOW ]; then
-	SCREENLIST=`screen -ls | grep 'Attached'`
-	if [ $? -eq "0" ]; then
-		echo -e "Screen is already running and attached:\n ${SCREENLIST}"
-	else
-		cd /www
-		screen -U -R
-	fi
+
+    # if screen working directory set, cd to it
+    if [[ $SCREEN_WD ]]; then
+        cd $SCREEN_WD
+    else
+        cd /www
+    fi
+
+    SCREENLIST=`screen -ls | grep 'Attached'`
+    if [ $? -eq "0" ]; then
+        echo -e "Screen is already running and attached:\n ${SCREENLIST}"
+    else
+        screen -U -R
+    fi
 fi
