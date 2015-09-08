@@ -27,6 +27,8 @@
 [color]
     diff = true
     ui = auto
+[pull]
+    rebase = true
 [push]
     default = matching
 [filter "media"]
