@@ -68,14 +68,14 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-#    if [[ $GIT_PS1_ENABLED ]]; then
+    if [[ $GIT_PS1_ENABLED ]]; then
         CURR_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
         source $CURR_DIR/.git-prompt.sh
 
         PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;31m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
-#    else
-#        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-#    fi
+    else
+        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    fi
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -144,6 +144,7 @@ alias glgnd="git log --oneline --graph --decorate --all --pretty=format:'%C(yell
 alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gcm='git checkout master'
+alias gmm='git merge master'
 alias gbr='git branch'
 alias gbn='git rev-parse --abbrev-ref HEAD'
 alias gps='git push'
@@ -153,6 +154,7 @@ alias gpt='git push -u origin `gbn`'
 alias gsp='git stash pop'
 alias gst='git stash'
 alias gsl='git stash list'
+alias gss='git stash show -p'
 alias gpl='git pull'
 
 # Way Generators shortcuts
