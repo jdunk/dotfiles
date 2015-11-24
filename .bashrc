@@ -2,13 +2,15 @@
 #
 # SUPER_BASHRC="$HOME/dotfiles/.bashrc"
 # [ -f $SUPER_BASHRC ] && . $SUPER_BASHRC
+#
+# Optionally, to disable showing the git branch name in the PS1, add the following BEFORE you source this file:
+#
+# export GIT_PS1_DISABLED=true;
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
-
-export GIT_PS1_SHOWDIRTYSTATE=1
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
@@ -68,11 +70,11 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    if [[ $GIT_PS1_ENABLED ]]; then
+    if [ "$GIT_PS1_DISABLED" != true ]; then
         CURR_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
         source $CURR_DIR/.git-prompt.sh
 
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;31m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
+        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;31m\]$(gbnf)\[\033[00m\]\$ '
     else
         PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     fi
@@ -147,7 +149,7 @@ alias gcm='git checkout master'
 alias gmm='git merge master'
 alias gmom='git merge origin/master'
 alias gbr='git branch'
-alias gbn='git rev-parse --abbrev-ref HEAD'
+alias gbn='git rev-parse --abbrev-ref HEAD 2>/dev/null'
 alias gps='git push'
 alias gpo='git push origin `gbn`'
 # same, but add tracking
@@ -166,6 +168,15 @@ alias g:v='php artisan generate:view'
 alias g:s='php artisan generate:seed'
 alias g:mig='php artisan generate:migration'
 alias g:r='php artisan generate:resource'
+
+gbnf ()
+{
+    export GBN=`gbn`;
+    
+    if [ $GBN ]; then
+        echo -n " ($GBN)"
+    fi
+}
 
 # enable bash completion features
 # (NOTE: this is unnecessary if file(s) already sourced via
