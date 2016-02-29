@@ -40,3 +40,9 @@
     excludesfile = ~/.gitignore_global
 [merge]
 	ff = false
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[diff]
+    tool = diffmerge
