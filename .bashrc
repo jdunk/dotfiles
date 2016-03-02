@@ -162,6 +162,8 @@ alias gst='git stash'
 alias gsl='git stash list'
 alias gss='git stash show -p'
 alias gpl='git pull'
+# git orphaned commits
+alias goc='git fsck --no-reflog | awk '\''/dangling commit/ {print $3}'\'''
 
 # Way Generators shortcuts
 alias g:m='php artisan generate:model'
