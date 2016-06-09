@@ -162,7 +162,10 @@ alias gst='git stash'
 alias gsl='git stash list'
 alias gss='git stash show -p'
 alias gpl='git pull'
-# git orphaned commits
+alias gr='git rev-parse'
+# gch = git (current|commit) (hash|head)
+alias gch='gr HEAD'
+# goc = git orphaned commits
 alias goc='git fsck --no-reflog | awk '\''/dangling commit/ {print $3}'\'''
 
 # Way Generators shortcuts
