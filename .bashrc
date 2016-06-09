@@ -163,6 +163,7 @@ alias gsl='git stash list'
 alias gss='git stash show -p'
 alias gpl='git pull'
 alias gr='git rev-parse'
+alias grh='git rev-parse HEAD'
 # gch = git (current|commit) (hash|head)
 alias gch='gr HEAD'
 # goc = git orphaned commits
