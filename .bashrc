@@ -162,6 +162,7 @@ alias gst='git stash'
 alias gsl='git stash list'
 alias gss='git stash show -p'
 alias gpl='git pull'
+alias gcmpl='git checkout master && git pull'
 alias gr='git rev-parse'
 alias grh='git rev-parse HEAD'
 # gch = git (current|commit) (hash|head)
