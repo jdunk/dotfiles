@@ -156,7 +156,7 @@ if [ $SSH_TTY ] && [ ! $WINDOW ]; then
     if [[ $SCREEN_WD ]]; then
         cd $SCREEN_WD
     else
-        cd /www
+        cd /var/www
     fi
 
     SCREENLIST=`screen -ls | grep 'Attached'`
