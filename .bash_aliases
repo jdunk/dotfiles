@@ -33,8 +33,14 @@ alias gdc='git diff --cached'
 alias ga='git add'
 alias gci='git commit'
 alias glg="git log --oneline --graph --decorate --all --date=short --pretty=format:'%Cblue%cd %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+# t = time included in date
 alias glgt="git log --oneline --graph --decorate --all --pretty=format:'%Cblue%ci %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+# nd = no date
 alias glgnd="git log --oneline --graph --decorate --all --pretty=format:'%C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+# final l = local (not '--all' branches)
+alias glgl="git log --oneline --graph --decorate --date=short --pretty=format:'%Cblue%cd %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+alias glgtl="git log --oneline --graph --decorate --pretty=format:'%Cblue%ci %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+alias glgndl="git log --oneline --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
 alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gcm='git checkout master'
