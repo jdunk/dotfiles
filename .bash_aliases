@@ -25,6 +25,11 @@ alias terminal_size='echo $(tput cols)x$(tput lines)'
 alias php-xdebug='php -dxdebug.remote_enable=On -dxdebug.remote_handler=dbgp -dxdebug.remote_host=localhost -dxdebug.remote_port=9000 -dxdebug.remote_autostart=On'
 alias phpunit-xdebug="php -d -dxdebug.remote_enable=On -dxdebug.remote_handler=dbgp -dxdebug.remote_host=localhost -dxdebug.remote_port=9000 -dxdebug.remote_autostart=On `which phpunit`"
 alias art='php artisan'
+alias vu='vagrant up'
+alias vh='vagrant halt'
+alias vs='vagrant suspend'
+alias vr='vagrant resume'
+alias vrl='vagrant reload'
 
 # git shortcuts
 alias gs='git status'
