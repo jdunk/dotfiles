@@ -31,6 +31,7 @@ alias vs='vagrant suspend'
 alias vr='vagrant resume'
 alias vrl='vagrant reload'
 alias vst='vagrant status'
+alias vssh='vagrant ssh'
 
 # git shortcuts
 alias gs='git status'
