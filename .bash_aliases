@@ -27,10 +27,11 @@ alias phpunit-xdebug="php -d -dxdebug.remote_enable=On -dxdebug.remote_handler=d
 alias art='php artisan'
 alias vu='vagrant up'
 alias vh='vagrant halt'
-alias vs='vagrant suspend'
+alias vss='vagrant suspend'
 alias vr='vagrant resume'
+alias vrs='vagrant resume'
 alias vrl='vagrant reload'
-alias vst='vagrant status'
+alias vs='vagrant status'
 alias vssh='vagrant ssh'
 
 # git shortcuts
