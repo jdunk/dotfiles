@@ -33,6 +33,7 @@ alias vrs='vagrant resume'
 alias vrl='vagrant reload'
 alias vs='vagrant status'
 alias vssh='vagrant ssh'
+alias dush='du -sh * .[!.*] 2>/dev/null|sort -hr'
 
 # git shortcuts
 alias gs='git status'
