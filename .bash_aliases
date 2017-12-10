@@ -53,6 +53,7 @@ alias glgndl="git log --oneline --graph --decorate --pretty=format:'%C(yellow)%h
 alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gcm='git checkout master'
+alias gcod='git checkout development'
 alias gmm='git merge master'
 alias gmom='git merge origin/master'
 alias gbr='git branch'
