@@ -7,6 +7,23 @@ set encoding=utf-8
 set backspace=2 " make backspace work like most other apps
 let mapleader = ","
 
+" CtrlP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_extensions = ['smarttabs']
+let g:ctrlp_smarttabs_modify_tabline = 0
+" Tab *colors*, that is
+" (Default: 1)
+if filereadable(".ctrlpignore")
+    let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat .ctrlpignore`"'
+endif
+
+" Faster tab navigation
+nnoremap H gT
+nnoremap L gt
+nnoremap <silent> TH :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> TL :execute 'silent! tabmove ' . tabpagenr()<CR>
+nnoremap <silent> TT :execute 'silent! tabnew'<CR>:CtrlP<CR>
+
 " vim airline
 set laststatus=2
 set t_Co=256
