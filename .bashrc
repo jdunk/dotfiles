@@ -8,6 +8,11 @@
 #
 # export GIT_PS1_DISABLED=true;
 #
+# And use the following to configure gnu screen autostart:
+#
+# export GNU_SCREEN_AUTOSTART=true;
+# export GNU_SCREEN_WORKING_DIR=/whatever/default/dir/you/want;
+#
 # =========================================
 
 # ================================================
@@ -150,11 +155,11 @@ if [ -d ~/bash_completion.d ]; then
     done
 fi
 
-if [ $SSH_TTY ] && [ ! $WINDOW ]; then
+if [[ "$GNU_SCREEN_AUTOSTART" == true ]] && [ $SSH_TTY ] && [ ! $WINDOW ]; then
 
     # if screen working directory set, cd to it
-    if [[ $SCREEN_WD ]]; then
-        cd $SCREEN_WD
+    if [[ $GNU_SCREEN_WORKING_DIR ]]; then
+        cd $GNU_SCREEN_WORKING_DIR
     else
         cd /var/www
     fi
