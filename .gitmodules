@@ -1,0 +1,6 @@
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = .vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim
+[submodule ".vim/bundle/ctrlp-smarttabs"]
+	path = .vim/bundle/ctrlp-smarttabs
+	url = https://github.com/DavidEGx/ctrlp-smarttabs
