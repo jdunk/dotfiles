@@ -15,9 +15,15 @@
 #
 # =========================================
 
+# ========================================================================
+# Disable output from `cd` and others, e.g. 'Saving session...completed.'
+# ========================================================================
+SHELL_SESSION_FILE=
+
 # ================================================
 # Get directory/path of this script
 # ================================================
+
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
@@ -55,8 +61,8 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if [ -f $DIR/.bash_aliases ]; then
-    . $DIR/.bash_aliases
+if [ -f "$DIR/.bash_aliases" ]; then
+    . "$DIR/.bash_aliases"
 fi
 
 color()(set -o pipefail;"$@" 2>&1>&3|sed $'s,.*,\e[31m&\e[m,'>&2)3>&1
