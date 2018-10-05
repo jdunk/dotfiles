@@ -84,6 +84,7 @@ alias kpl='gkpl'
 alias gch='gr HEAD'
 # goc = git orphaned commits
 alias goc='git fsck --no-reflog | awk '\''/dangling commit/ {print $3}'\'''
+alias gpull='git pull --rebase --autostash' 
 
 # Way Generators shortcuts
 alias g:m='php artisan generate:model'
