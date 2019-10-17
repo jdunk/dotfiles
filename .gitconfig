@@ -1,6 +1,6 @@
 [user]
-    email = jdunk@users.noreply.github.com
-    name = jdunk
+	email = jdunk@users.noreply.github.com
+	name = jdunk
 [alias]
     abandon = reset --hard
     br = branch
@@ -39,11 +39,14 @@
 [core]
     excludesfile = ~/.gitignore_global
     pager = less -SRF
+	ignorecase = false
 [merge]
 	ff = false
+	conflictstyle = diff3
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [diff]
     tool = diffmerge
