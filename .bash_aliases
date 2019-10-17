@@ -53,7 +53,9 @@ alias glglt="glgtl"
 alias glgndl="git log --oneline --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
 alias gco='git checkout'
 alias gcb='git checkout -b'
+alias gcoi='git checkout integration'
 alias gcm='git checkout master'
+alias gcom='git checkout master'
 alias gcd='git checkout development'
 alias gcod='gcd'
 alias gmm='git merge master'
@@ -64,6 +66,8 @@ alias gps='git push'
 alias gpo='git push origin `gbn`'
 # same, but add tracking
 alias gpt='git push -u origin `gbn`'
+alias gri='git rebase integration'
+alias grm='git rebase master'
 alias gsp='git stash pop'
 alias gst='git stash'
 alias gsl='git stash list'
