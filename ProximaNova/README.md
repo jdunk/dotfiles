@@ -1,13 +1,33 @@
-Here's the mapping (which is also valid CSS):
+Here's the mapping:
 
 ```
-@include fontFace('Proxima Nova', 600, normal, '~assets/fonts/ProximaNova/351C86_1_0.eot', ('eot'));
-@include fontFace('Proxima Nova', 600, normal, '~assets/fonts/ProximaNova/351C86_1_0.ttf', ('truetype'));
-@include fontFace('Proxima Nova', 600, normal, '~assets/fonts/ProximaNova/351C86_1_0.woff', ('woff'));
-@include fontFace('Proxima Nova', 600, normal, '~assets/fonts/ProximaNova/351C86_1_0.woff2', ('woff2'));
+font-weight: 400
+351C86_3_0.eot
+351C86_3_0.ttf
+351C86_3_0.woff
+351C86_3_0.woff2
 
-@include fontFace('Proxima Nova', 700, normal, '~assets/fonts/ProximaNova/351C86_2_0.eot', ('eot'));
-@include fontFace('Proxima Nova', 700, normal, '~assets/fonts/ProximaNova/351C86_2_0.ttf', ('truetype'));
-@include fontFace('Proxima Nova', 700, normal, '~assets/fonts/ProximaNova/351C86_2_0.woff', ('woff'));
-@include fontFace('Proxima Nova', 700, normal, '~assets/fonts/ProximaNova/351C86_2_0.woff2', ('woff2'));
+font-weight: 500
+351C86_4_0.eot
+351C86_4_0.ttf
+351C86_4_0.woff
+351C86_4_0.woff2
+
+font-weight: 600
+351C86_1_0.eot
+351C86_1_0.ttf
+351C86_1_0.woff
+351C86_1_0.woff2
+
+font-weight: 700
+351C86_2_0.eot
+351C86_2_0.ttf
+351C86_2_0.woff
+351C86_2_0.woff2
+
+font-weight: 800
+351C86_0_0.eot
+351C86_0_0.ttf
+351C86_0_0.woff
+351C86_0_0.woff2
 ```
