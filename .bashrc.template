@@ -1,11 +1,21 @@
-# Only necessary for WSL, but not harmful in *nix envs, so may as well make it universal
-export SCREENDIR="$HOME/.screen"
+# + Powerline/vim-airline
+#
+# To install Powerline fonts on windows (used in vim-airline), follow the instructions here:
+# https://medium.com/@slmeng/how-to-install-powerline-fonts-in-windows-b2eedecace58
+# and here:
+# https://stackoverflow.com/a/63148518/2789561
 
+# + git/PS1
+#
 # To disable showing the git branch name in the PS1, uncomment the following:
 #
 # export GIT_PS1_DISABLED=true;
-#
-# And use the following to configure gnu screen autostart:
+
+# + GNU screen
+# Only necessary for WSL, but not harmful in *nix envs, so may as well make it universal
+export SCREENDIR="$HOME/.screen"
+
+# ++ GNU screen autostart config:
 #
 # export GNU_SCREEN_DISABLE_AUTOSTART=true;
 # export GNU_SCREEN_WORKING_DIR=/whatever/default/dir/you/want;

@@ -83,3 +83,5 @@ else
   ln -s $DOTFILES_DIR/.gitignore_global $HOME
   printf "${CYAN}.gitignore_global linked${NC}\n"
 fi
+
+printf "${YELLOW}For Powerline installation, see comments at the top of your .bashrc${NC}\n"
