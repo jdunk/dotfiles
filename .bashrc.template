@@ -1,0 +1,11 @@
+# To disable showing the git branch name in the PS1, uncomment the following:
+#
+# export GIT_PS1_DISABLED=true;
+#
+# And use the following to configure gnu screen autostart:
+#
+# export GNU_SCREEN_DISABLE_AUTOSTART=true;
+# export GNU_SCREEN_WORKING_DIR=/whatever/default/dir/you/want;
+
+[ -f $JDUNK_SUPER_BASHRC ] && . $JDUNK_SUPER_BASHRC
+
