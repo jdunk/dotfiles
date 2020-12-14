@@ -1,3 +1,6 @@
+# Only necessary for WSL, but not harmful in *nix envs, so may as well make it universal
+export SCREENDIR="$HOME/.screen"
+
 # To disable showing the git branch name in the PS1, uncomment the following:
 #
 # export GIT_PS1_DISABLED=true;
