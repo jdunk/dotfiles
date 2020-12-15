@@ -29,6 +29,8 @@
     ui = auto
 [pull]
     rebase = true
+[rebase]
+    autostash = true
 [push]
     default = simple
 [filter "media"]
