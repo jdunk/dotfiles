@@ -107,3 +107,5 @@ alias g:r='php artisan generate:resource'
 
 # jdunk-specific
 alias jdunk-ssh='ssh jared@jdunk.com -p 48006'
+alias jdunk-scp-to='jdunk-scp-up'
+alias jdunk-scp-from='jdunk-scp-down'
