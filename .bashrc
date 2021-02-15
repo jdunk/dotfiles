@@ -33,6 +33,9 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 # ================================================
 
+# e.g., `for file in some/dir/* ; do ...` will not error with 'no such file or directory' when dir is empty
+shopt -s nullglob
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -63,6 +66,14 @@ fi
 
 if [ -f "$DIR/.bash_aliases" ]; then
     . "$DIR/.bash_aliases"
+fi
+
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
+if [ -f "$DIR/.bash_functions" ]; then
+    . "$DIR/.bash_functions"
 fi
 
 color()(set -o pipefail;"$@" 2>&1>&3|sed $'s,.*,\e[31m&\e[m,'>&2)3>&1

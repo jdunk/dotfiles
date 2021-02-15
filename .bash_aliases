@@ -105,11 +105,5 @@ alias g:s='php artisan generate:seed'
 alias g:mig='php artisan generate:migration'
 alias g:r='php artisan generate:resource'
 
-gbnf ()
-{
-    export GBN=`gbn`;
-    
-    if [ $GBN ]; then
-        echo -n " ($GBN)"
-    fi
-}
+# jdunk-specific
+alias jdunk-ssh='ssh jared@jdunk.com -p 48006'
