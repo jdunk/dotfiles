@@ -34,6 +34,13 @@ alias vrl='vagrant reload'
 alias vs='vagrant status'
 alias vssh='vagrant ssh'
 alias dush='du -sh * .[!.*] 2>/dev/null|sort -hr'
+alias nginx-start='sudo service nginx start'
+alias nginx-restart='sudo service nginx restart'
+alias nginx-status='sudo service nginx status'
+alias nginx-stop='sudo service nginx stop'
+alias phpfpm-7.3-start='sudo service php7.3-fpm start'
+alias phpfpm-7.3-restart='sudo service php7.3-fpm restart'
+alias phpfpm-7.3-status='sudo service php7.3-fpm status'
 
 # git shortcuts
 alias gs='git status'
