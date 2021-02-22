@@ -42,6 +42,7 @@ alias phpfpm-7.3-start='sudo service php7.3-fpm start'
 alias phpfpm-7.3-restart='sudo service php7.3-fpm restart'
 alias phpfpm-7.3-status='sudo service php7.3-fpm status'
 
+alias ports-services='sudo netstat -tulpn'
 alias ports-services-mac='sudo lsof -iTCP -sTCP:LISTEN -n -P'
 
 # git shortcuts
