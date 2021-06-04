@@ -50,7 +50,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias ga='git add'
-alias gci='git commit'
+alias gci='GIT_COMMITTER_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ") git commit --date=$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
 alias glg="git log --oneline --graph --decorate --all --date=short --pretty=format:'%Cblue%cd %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
 # t = time included in date
 alias glgt="git log --oneline --graph --decorate --all --pretty=format:'%Cblue%ci %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
@@ -78,6 +78,7 @@ alias gpo='git push origin `gbn`'
 alias gpt='git push -u origin `gbn`'
 alias gri='git rebase integration'
 alias grm='git rebase master'
+alias grc='git rebase --continue'
 alias gsp='git stash pop'
 alias gst='git stash'
 alias gsl='git stash list'
