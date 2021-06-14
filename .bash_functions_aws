@@ -102,6 +102,23 @@ aws-update-function()
     --zip-file fileb://$1.zip
 }
 
+aws-refresh-function()
+{
+  if [ $# -lt 1 ]
+  then
+    echo "Usage: ${FUNCNAME[0]} <function-name> [...args]"
+    return 1
+  fi
+
+  local functionName=$1; shift
+
+  if [ -f "$functionName.zip" ]; then
+    rm $functionName.zip
+  fi
+
+  zip -r $functionName.zip *.js node_modules/ .env && aws-update-function $functionName
+}
+
 aws-invoke-function()
 {
   if [ $# -lt 1 ]
