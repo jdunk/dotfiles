@@ -116,7 +116,7 @@ aws-refresh-function()
     rm $functionName.zip
   fi
 
-  zip -r $functionName.zip *.js node_modules/ .env && aws-update-function $functionName
+  zip -r $functionName.zip *.js node_modules/ .env "$@" && aws-update-function $functionName
 }
 
 aws-invoke-function()
@@ -134,9 +134,13 @@ aws-invoke-function()
     --function-name $functionName \
     --log-type Tail \
     /dev/stdout \
-    "$@" | grep "LogResult"| awk -F'"' '{print $4}' | base64 --decode \
-    | grep -v -e '^START RequestId' \
-    | grep -v -e '^END RequestId'
+    "$@" \
+    | tee >/dev/null \
+        >(head -1) \
+        >(grep "LogResult"| awk -F'"' '{print $4}' | base64 --decode \
+           | grep -v -e '^START RequestId' \
+           | grep -v -e '^END RequestId' \
+         )
 }
 
 aws-delete-function()
