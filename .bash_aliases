@@ -113,3 +113,7 @@ alias g:r='php artisan generate:resource'
 alias jdunk-ssh='ssh jared@jdunk.com -p 48006'
 alias jdunk-scp-to='jdunk-scp-up'
 alias jdunk-scp-from='jdunk-scp-down'
+
+# AWS
+alias aws-list-function-names='aws lambda list-functions --query '\''Functions[].FunctionName'\'''
+alias aws-list-role-names='aws iam list-roles --query '\''Roles[].RoleName'\'''

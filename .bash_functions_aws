@@ -1,0 +1,154 @@
+DEFAULT_LAMBDA_ROLE_NAME='lambda-ex'
+DEFAULT_RUNTIME='nodejs14.x'
+
+aws-get-function-code()
+{
+  if [ $# -ne 1 ]
+  then
+    echo "Usage: ${FUNCNAME[0]} <function-name>"
+    return 1
+  fi
+
+  wget -O $1.zip "$(aws lambda get-function --function-name $1 --query Code.Location|tr -d '"')"
+}
+
+aws-create-role-lambda-default()
+{
+  local roleName=$DEFAULT_LAMBDA_ROLE_NAME
+
+  if [ $# -eq 1 ]
+  then
+    roleName=$1
+  fi
+
+  aws iam create-role --role-name $roleName --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}' && \
+  aws iam attach-role-policy --role-name $roleName --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+}
+
+aws-get-role-arn()
+{
+
+  if [ $# -ne 1 ]
+  then
+    echo "Usage: ${FUNCNAME[0]} <role-name>"
+    return 1
+  fi
+
+  aws iam get-role --role-name $1 --query Role.Arn |tr -d '"'
+
+  local getRoleExitCode=${PIPESTATUS[0]}
+
+  if [ $getRoleExitCode -ne 0 ]; then
+    echo error detected in get-role
+    return $getRoleExitCode
+  fi
+}
+
+aws-get-role-lambda-default-arn()
+{
+  local roleName=$DEFAULT_LAMBDA_ROLE_NAME
+
+  if [ $# -eq 1 ]
+  then
+    roleName=$1
+  fi
+
+  aws-get-role-arn $roleName
+}
+
+aws-create-function()
+{
+  if [ $# -ne 1 ]
+  then
+    echo "Usage: ${FUNCNAME[0]} <function-name>"
+    return 1
+  fi
+
+  if [ ! -f "$1.zip" ]; then
+    echo "Error: $1.zip not found."
+    return 1
+  fi
+
+  local roleArn=$(aws-get-role-lambda-default-arn)
+  local getRoleExitCode=$?
+
+  if [ $getRoleExitCode -ne 0 ]; then
+    return $getRoleExitCode
+  fi
+
+  aws lambda create-function \
+    --function-name $1 \
+    --zip-file fileb://$1.zip \
+    --role $roleArn \
+    --runtime $DEFAULT_RUNTIME \
+    --handler index.handler
+}
+
+aws-update-function()
+{
+  if [ $# -ne 1 ]
+  then
+    echo "Usage: ${FUNCNAME[0]} <function-name>"
+    return 1
+  fi
+
+  if [ ! -f "$1.zip" ]; then
+    echo "Error: $1.zip not found."
+    return 1
+  fi
+
+  aws lambda update-function-code \
+    --function-name $1 \
+    --zip-file fileb://$1.zip
+}
+
+aws-invoke-function()
+{
+  if [ $# -lt 1 ]
+  then
+    echo "Usage: ${FUNCNAME[0]} <function-name> [...args]"
+    return 1
+  fi
+
+  local functionName=$1; shift
+
+  aws lambda invoke \
+    --cli-binary-format raw-in-base64-out \
+    --function-name $functionName \
+    --log-type Tail \
+    /dev/stdout \
+    "$@" | grep "LogResult"| awk -F'"' '{print $4}' | base64 --decode \
+    | grep -v -e '^START RequestId' \
+    | grep -v -e '^END RequestId'
+}
+
+aws-delete-function()
+{
+  if [ $# -ne 1 ]
+  then
+    echo "Usage: ${FUNCNAME[0]} <function-name>"
+    return 1
+  fi
+
+  local functionName=$1; shift
+
+  aws lambda delete-function \
+    --function-name $functionName
+}
+
+aws-delete-role()
+{
+  if [ $# -ne 1 ]
+  then
+    echo "Usage: ${FUNCNAME[0]} <role-name>"
+    return 1
+  fi
+
+  local attachedPolicies=( $(aws iam list-attached-role-policies --role-name $1 --query 'AttachedPolicies[].PolicyArn'|tr -d '"[] ,'|sed '/^$/d') )
+
+  for policyArn in $attachedPolicies; do
+    aws iam detach-role-policy --role-name $1 --policy-arn $policyArn
+  done
+
+  aws iam delete-role --role-name $1 && echo "Done."
+}

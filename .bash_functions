@@ -1,3 +1,8 @@
+# source AWS functions
+if [ -f $DIR/.bash_functions_aws ]; then
+    source $DIR/.bash_functions_aws
+fi
+
 gbnf ()
 {
     export GBN=`gbn`;
@@ -27,13 +32,3 @@ gciad()
     GIT_COMMITTER_DATE="$1" git commit --amend --date="$1" --no-edit
 }
 
-aws-get-function-code()
-{
-    if [ $# -ne 1 ]
-    then
-      echo "Usage: $0 <function-name>"
-      return 1
-    fi
-
-    wget -O $1.zip "$(aws lambda get-function --function-name $1 --query Code.Location|tr -d '"')"
-}
