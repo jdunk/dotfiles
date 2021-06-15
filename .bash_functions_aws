@@ -104,13 +104,15 @@ aws-update-function()
 
 aws-refresh-function()
 {
-  if [ $# -lt 1 ]
-  then
-    echo "Usage: ${FUNCNAME[0]} <function-name> [...args]"
-    return 1
-  fi
+  local currDirName=${PWD##*/}
 
-  local functionName=$1; shift
+  # Surmise if first arg is the function name
+  if [[ $1 =~ ^[a-zA-Z] && ! -e $1 ]]; then
+    local functionName=$1; shift
+  else
+    local functionName=$currDirName
+    echo Assumed function-name: $functionName
+  fi
 
   if [ -f "$functionName.zip" ]; then
     rm $functionName.zip
@@ -121,13 +123,15 @@ aws-refresh-function()
 
 aws-invoke-function()
 {
-  if [ $# -lt 1 ]
-  then
-    echo "Usage: ${FUNCNAME[0]} <function-name> [...args]"
-    return 1
-  fi
+  local currDirName=${PWD##*/}
 
-  local functionName=$1; shift
+  # Surmise if first arg is the function name
+  if [[ $1 =~ ^[a-zA-Z] && ! -e $1 ]]; then
+    local functionName=$1; shift
+  else
+    local functionName=$currDirName
+    echo Assumed function-name: $functionName
+  fi
 
   aws lambda invoke \
     --cli-binary-format raw-in-base64-out \
