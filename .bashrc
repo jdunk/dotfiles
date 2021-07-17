@@ -44,6 +44,9 @@ fi
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
+# Suppresses annoying "The default interactive shell is now zsh" warning (Mac terminal Catalina+)
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 export TERM="xterm-256color"
 # at the least, LC_COLLATE affects "ls" sort order case-sensitivity
 export LC_COLLATE=C
