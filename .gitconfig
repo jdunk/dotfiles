@@ -1,6 +1,6 @@
 [user]
 	email = jdunk@users.noreply.github.com
-	name = jdunk
+	name = 'Jared Duncan'
 [alias]
     abandon = reset --hard
     br = branch

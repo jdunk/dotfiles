@@ -51,19 +51,9 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias ga='git add'
 alias gci='GIT_COMMITTER_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ") git commit --date=$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
-alias glg="git log --oneline --graph --decorate --all --date=short --pretty=format:'%Cblue%cd %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
-# t = time included in date
-alias glgt="git log --oneline --graph --decorate --all --pretty=format:'%Cblue%ci %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
-# nd = no date
-alias glgnd="git log --oneline --graph --decorate --all --pretty=format:'%C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
-# final l = local (not '--all' branches)
-alias glgl="git log --oneline --graph --decorate --date=short --pretty=format:'%Cblue%cd %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
-alias glgtl="git log --oneline --graph --decorate --pretty=format:'%Cblue%ci %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
-alias glglt="glgtl"
-alias glgndl="git log --oneline --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+alias gf='git fetch'
 alias gco='git checkout'
 alias gcb='git checkout -b'
-alias gcoi='git checkout integration'
 alias gcm='git checkout master'
 alias gcom='git checkout master'
 alias gcd='git checkout development'
@@ -71,14 +61,17 @@ alias gcod='gcd'
 alias gmm='git merge master'
 alias gmom='git merge origin/master'
 alias gbr='git branch'
-alias gbn='git rev-parse --abbrev-ref HEAD 2>/dev/null'
+alias gbn='git rev-parse --abbrev-ref HEAD 2>/dev/null' # Branch Name
 alias gps='git push'
 alias gpo='git push origin'
+alias gpof='git push origin -f'
+alias gpod='git push origin --delete'
 alias gpob='git push origin `gbn`'
+alias gpobn='git push origin `gbn`'
 # same, but add tracking
 alias gpt='git push -u origin `gbn`'
-alias gri='git rebase integration'
 alias grm='git rebase master'
+alias grom='git rebase origin/master'
 alias grc='git rebase --continue'
 alias gsp='git stash pop'
 alias gst='git stash'
@@ -93,6 +86,7 @@ alias gstpp='gst && gpl && gsp'
 alias gspp='gstpp'
 alias gcmpl='git checkout master && git pull'
 alias gr='git rev-parse'
+alias grp='git rev-parse'
 alias grh='git rev-parse HEAD'
 alias gkpl='git co -- package-lock.json' # Kill Package Lock
 alias kpl='gkpl'
@@ -100,6 +94,19 @@ alias kpl='gkpl'
 alias gch='gr HEAD'
 # goc = git orphaned commits
 alias goc='git fsck --no-reflog | awk '\''/dangling commit/ {print $3}'\'''
+# guc = git undo-commit
+alias guc='git reset --soft HEAD^'
+
+# git log
+alias glg="git log --oneline --graph --decorate --date=short --pretty=format:'%Cblue%cd %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+# a = all (default is local branch only)
+alias glga="git log --oneline --graph --decorate --all --date=short --pretty=format:'%Cblue%cd %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+# t = time included in date
+alias glgt="git log --oneline --graph --decorate --pretty=format:'%Cblue%ci %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+alias glgat="git log --oneline --graph --decorate --all --pretty=format:'%Cblue%ci %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+# nd = no date
+alias glgnd="git log --oneline --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+alias glgand="git log --oneline --graph --decorate --all --pretty=format:'%C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
 
 # Way Generators shortcuts
 alias g:m='php artisan generate:model'
