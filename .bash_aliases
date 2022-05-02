@@ -61,6 +61,7 @@ alias gcod='gcd'
 alias gmm='git merge master'
 alias gmom='git merge origin/master'
 alias gbr='git branch'
+alias grb='git branch -f' # reset branch
 alias gbn='git rev-parse --abbrev-ref HEAD 2>/dev/null' # Branch Name
 alias gps='git push'
 alias gpo='git push origin'
