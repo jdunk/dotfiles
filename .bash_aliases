@@ -66,6 +66,7 @@ alias gps='git push'
 alias gpo='git push origin'
 alias gpof='git push origin -f'
 alias gpod='git push origin --delete'
+alias gpodbn='git push origin --delete `gbn`'
 alias gpob='git push origin `gbn`'
 alias gpobn='git push origin `gbn`'
 # same, but add tracking
