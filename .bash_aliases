@@ -89,7 +89,6 @@ alias gspp='gstpp'
 alias gcmpl='git checkout master && git pull'
 alias gr='git rev-parse'
 alias grp='git rev-parse'
-alias grh='git rev-parse HEAD'
 alias gkpl='git co -- package-lock.json' # Kill Package Lock
 alias kpl='gkpl'
 # gch = git (current|commit) (hash|head)
@@ -98,6 +97,9 @@ alias gch='gr HEAD'
 alias goc='git fsck --no-reflog | awk '\''/dangling commit/ {print $3}'\'''
 # guc = git undo-commit
 alias guc='git reset --soft HEAD^'
+alias grh='git reset --hard' # git resets to HEAD by default
+alias grho='git reset --hard origin/$(gbn)'
+alias gcp='git cherry-pick'
 
 # git log
 alias glg="git log --oneline --graph --decorate --date=short --pretty=format:'%Cblue%cd %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
