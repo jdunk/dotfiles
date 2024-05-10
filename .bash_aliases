@@ -102,9 +102,9 @@ alias guc='git reset --soft HEAD^'
 alias grh='git reset --hard' # git resets to HEAD by default
 alias grhp='git reset --hard HEAD^' # p = parent, ala mkdir -p
 alias grhpp='git reset --hard HEAD^^'
-alias grhpppp='git reset --hard HEAD^^^'
+alias grhppp='git reset --hard HEAD^^^'
 alias grhp2='git reset --hard HEAD^^'
-alias grhppp3='git reset --hard HEAD^^^'
+alias grhp3='git reset --hard HEAD^^^'
 alias grho='git reset --hard origin/$(gbn)'
 alias gcp='git cherry-pick'
 
