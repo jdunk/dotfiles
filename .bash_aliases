@@ -115,7 +115,7 @@ alias grhp2='git reset --hard HEAD^^'
 alias grhp3='git reset --hard HEAD^^^'
 alias grho='git reset --hard origin/$(gbn)'
 
-# git log
+## git log
 alias glg="git log --oneline --graph --decorate --date=short --pretty=format:'%Cblue%cd %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
 # a = all (default is local branch only)
 alias glga="git log --oneline --graph --decorate --all --date=short --pretty=format:'%Cblue%cd %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
@@ -125,6 +125,11 @@ alias glgat="git log --oneline --graph --decorate --all --pretty=format:'%Cblue%
 # nd = no date
 alias glgnd="git log --oneline --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
 alias glgand="git log --oneline --graph --decorate --all --pretty=format:'%C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
+
+## git ls-remote
+alias glsr='git ls-remote origin'
+alias glsrt='git ls-remote --tags origin'
+alias glsrb='git ls-remote --heads origin'
 
 # Way Generators shortcuts
 alias g:m='php artisan generate:model'
