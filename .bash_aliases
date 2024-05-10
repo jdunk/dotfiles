@@ -14,8 +14,8 @@ alias sudo='sudo '
 alias lx='ls -lahp'
 alias vi='vim'
 alias vim='vim -p'
-alias sdr='sudo shutdown -r now'
-alias sdh='sudo shutdown -h now'
+# alias sdr='sudo shutdown -r now'
+# alias sdh='sudo shutdown -h now'
 alias find='find -H'
 alias bc='bc -l'
 alias kibitz='kibitz -noescape'
@@ -38,9 +38,6 @@ alias nginx-start='sudo service nginx start'
 alias nginx-restart='sudo service nginx restart'
 alias nginx-status='sudo service nginx status'
 alias nginx-stop='sudo service nginx stop'
-alias phpfpm-7.3-start='sudo service php7.3-fpm start'
-alias phpfpm-7.3-restart='sudo service php7.3-fpm restart'
-alias phpfpm-7.3-status='sudo service php7.3-fpm status'
 
 alias ports-services='sudo netstat -tulpn'
 alias ports-services-mac='sudo lsof -iTCP -sTCP:LISTEN -n -P'
@@ -52,19 +49,20 @@ alias gdc='git diff --cached'
 alias ga='git add'
 alias gci='GIT_COMMITTER_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ") git commit --date=$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
 alias gf='git fetch'
+alias gpl='git pull'
+alias gbn='git rev-parse --abbrev-ref HEAD 2>/dev/null' # Branch Name
 alias gmbn='git rev-parse master >/dev/null 2>&1 && echo "master" || echo "main"' # Master/Main Branch Name
 alias gco='git checkout'
-alias gcb='git checkout -b'
+alias gcb='git checkout -b' # create branch
 alias gcm='git checkout `gmbn`'
 alias gcom='git checkout `gmbn`'
-alias gcd='git checkout development'
-alias gcod='gcd'
 alias gsw='git switch'
 alias gmm='git merge `gmbn`'
 alias gmom='git merge origin/`gmbn`'
 alias gbr='git branch'
 alias grb='git branch -f' # reset branch
-alias gbn='git rev-parse --abbrev-ref HEAD 2>/dev/null' # Branch Name
+
+## push
 alias gps='git push'
 alias gpo='git push origin'
 alias gpof='git push origin -f'
@@ -72,11 +70,15 @@ alias gpod='git push origin --delete'
 alias gpodbn='git push origin --delete `gbn`'
 alias gpob='git push origin `gbn`'
 alias gpobn='git push origin `gbn`'
-# same, but add tracking
+### same, but add tracking
 alias gpt='git push -u origin `gbn`'
+
+## rebase
 alias grm='git rebase `gmbn`'
 alias grom='git rebase origin/`gmbn`'
 alias grc='git rebase --continue'
+
+## stash
 alias gsp='git stash pop'
 alias gst='git stash'
 alias gsl='git stash list'
@@ -85,14 +87,12 @@ alias gsd='git stash drop'
 alias gsd0='git stash drop stash@{0}'
 alias gsd1='git stash drop stash@{1}'
 alias gsd2='git stash drop stash@{2}'
-alias gpl='git pull'
 alias gstpp='gst && gpl && gsp'
 alias gspp='gstpp'
 alias gcmpl='git checkout `gmbn` && git pull'
 alias gr='git rev-parse'
 alias grp='git rev-parse'
-alias gkpl='git co -- package-lock.json' # Kill Package Lock
-alias kpl='gkpl'
+alias gkpl='git co -- package-lock.json' # Kill package-lock changes
 # gch = git (current|commit) (hash|head)
 alias gch='gr HEAD'
 # goc = git orphaned commits
