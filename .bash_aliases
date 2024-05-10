@@ -61,6 +61,8 @@ alias gmm='git merge `gmbn`'
 alias gmom='git merge origin/`gmbn`'
 alias gbr='git branch'
 alias grb='git branch -f' # reset branch
+alias gcp='git cherry-pick'
+alias gcpc='git cherry-pick --continue'
 
 ## push
 alias gps='git push'
@@ -77,6 +79,11 @@ alias gpt='git push -u origin `gbn`'
 alias grm='git rebase `gmbn`'
 alias grom='git rebase origin/`gmbn`'
 alias grc='git rebase --continue'
+alias grbc='git rebase --continue'
+alias gri='git rebase -i'
+alias grbi='git rebase -i'
+alias gra='git rebase --abort'
+alias grba='git rebase --abort'
 
 ## stash
 alias gsp='git stash pop'
@@ -97,8 +104,9 @@ alias gkpl='git co -- package-lock.json' # Kill package-lock changes
 alias gch='gr HEAD'
 # goc = git orphaned commits
 alias goc='git fsck --no-reflog | awk '\''/dangling commit/ {print $3}'\'''
-# guc = git undo-commit
-alias guc='git reset --soft HEAD^'
+
+## reset
+alias guc='git reset --soft HEAD^' # guc = git undo-commit
 alias grh='git reset --hard' # git resets to HEAD by default
 alias grhp='git reset --hard HEAD^' # p = parent, ala mkdir -p
 alias grhpp='git reset --hard HEAD^^'
@@ -106,7 +114,6 @@ alias grhppp='git reset --hard HEAD^^^'
 alias grhp2='git reset --hard HEAD^^'
 alias grhp3='git reset --hard HEAD^^^'
 alias grho='git reset --hard origin/$(gbn)'
-alias gcp='git cherry-pick'
 
 # git log
 alias glg="git log --oneline --graph --decorate --date=short --pretty=format:'%Cblue%cd %C(yellow)%h %C(cyan)[%an]%Creset -%C(auto)%d%Creset %s %Creset'"
