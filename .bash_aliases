@@ -60,7 +60,6 @@ alias gsw='git switch'
 alias gmm='git merge `gmbn`'
 alias gmom='git merge origin/`gmbn`'
 alias gbr='git branch'
-alias grb='git branch -f' # reset branch
 alias gcp='git cherry-pick'
 alias gcpc='git cherry-pick --continue'
 
@@ -76,6 +75,7 @@ alias gpobn='git push origin `gbn`'
 alias gpt='git push -u origin `gbn`'
 
 ## rebase
+alias grb='git rebase'
 alias grm='git rebase `gmbn`'
 alias grom='git rebase origin/`gmbn`'
 alias grc='git rebase --continue'
