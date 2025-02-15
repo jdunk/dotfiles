@@ -42,6 +42,8 @@ alias nginx-stop='sudo service nginx stop'
 alias ports-services='sudo netstat -tulpn'
 alias ports-services-mac='sudo lsof -iTCP -sTCP:LISTEN -n -P'
 
+alias fix-blackhole='sudo killall -9 coreaudiod'
+
 # git shortcuts
 alias gs='git status'
 alias gd='git diff'
