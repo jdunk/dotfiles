@@ -1,6 +1,37 @@
 DEFAULT_LAMBDA_ROLE_NAME='lambda-ex'
 DEFAULT_RUNTIME='nodejs14.x'
 
+load_aws_regions_once() {
+  if [ -z "$AWS_REGIONS" ] && command -v aws >/dev/null 2>&1; then
+    regions=$(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region us-east-1 2>/dev/null)
+    if [ $? -eq 0 ]; then
+      export AWS_REGIONS="$regions"
+      export AWS_REGIONS_LOADED=1
+    else
+      echo "[warn] AWS CLI is installed but not authenticated - skipping region load" >&2
+    fi
+  fi
+}
+
+s3-list-all-buckets() {
+  load_aws_regions_once
+  for region in $AWS_REGIONS; do
+    echo "=== Region: $region ==="
+    aws s3 ls --region "$region" --output text 2>/dev/null || echo "[error] Failed to list buckets in $region"
+    echo
+  done
+}
+
+aws-lambda-list-all-functions() {
+  load_aws_regions_once
+  for region in $AWS_REGIONS; do
+    echo "=== Region: $region ==="
+    aws lambda list-functions --region "$region" \
+      --query 'Functions[*].FunctionName' --output text 2>/dev/null || echo "[error] Failed to list functions in $region"
+    echo
+  done
+}
+
 aws-get-function-code()
 {
   if [ $# -ne 1 ]
@@ -176,4 +207,17 @@ aws-delete-role()
   done
 
   aws iam delete-role --role-name $1 && echo "Done."
+}
+
+# AWS
+
+s3-empty-bucket()
+{
+    if [ $# -ne 1 ]
+    then
+      echo "Usage: $0 bucket-name"
+      return 1
+    fi
+
+    aws s3 rm s3://$1 --recursive
 }
